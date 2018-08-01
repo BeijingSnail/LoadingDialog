@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="110dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/dialog_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
+
+        <ProgressBar
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@drawable/dialog_rotate"
+            android:indeterminateOnly="true" />
+
+        <TextView
+            android:id="@+id/message_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="加载中..."
+            android:textColor="#f0f0f0"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</RelativeLayout>
