@@ -9,23 +9,22 @@ import android.content.Context;
 
 public class LoadingUtils {
 
-    private static Dialog loadingDialog;
-
-    public static void init(Context mContext) {
+    public static LoadingDialog getInstance(Context mContext) {
         LoadingDialog.Builder builder = new LoadingDialog.Builder(mContext);
         builder.setMessage("加载中...");
-        loadingDialog = builder.creat();
+        LoadingDialog dialog = builder.creat();
+        return dialog;
     }
 
-    public static void show() {
-        if (loadingDialog != null && !loadingDialog.isShowing()) {
-            loadingDialog.show();
+    public static void show(Dialog dialog) {
+        if (dialog != null && !dialog.isShowing()) {
+            dialog.show();
         }
     }
 
-    public static void dismiss() {
-        if (loadingDialog != null && loadingDialog.isShowing()) {
-            loadingDialog.dismiss();
+    public static void dismiss(Dialog dialog) {
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
         }
     }
 

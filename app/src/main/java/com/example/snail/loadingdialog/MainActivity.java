@@ -1,5 +1,6 @@
 package com.example.snail.loadingdialog;
 
+import android.app.Dialog;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,11 +10,15 @@ import com.example.loading.LoadingUtils;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Handler handler;
+    private Dialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LoadingUtils.init(this);
+        dialog = LoadingUtils.getInstance(this);
+
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -22,15 +27,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private Handler handler;
-
     private void showDialog() {
-        LoadingUtils.show();
+        LoadingUtils.show(dialog);
         handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                LoadingUtils.dismiss();
+                LoadingUtils.dismiss(dialog);
             }
         }, 2000);
     }
